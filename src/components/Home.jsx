@@ -10,7 +10,8 @@ const Home = () => {
     const saveNote = () => {
         const data = {
             id: crypto.randomUUID(),
-            timestamp: new Date(),
+            createdAt: new Date(),
+            lastEdited: new Date(),
             title,
             description
         }
@@ -26,12 +27,12 @@ const Home = () => {
             <div className="flex justify-between items-center p-5">
                 <div className="font-bold text-2xl "> MindPad </div>
                 <div className="flex gap-4">
-                    <div onClick={saveNote} className="border-2 border-blue-900 text-blue-900 font-semibold px-4 py-2 rounded-full shadow-sm shadow-black flex gap-2 items-center cursor-pointer">
+                    <button onClick={saveNote} disabled={title === "" || description === ""} className={`border-2 ${title === "" || description === "" ? "border-gray-500 text-gray-500 cursor-not-allowed": "border-blue-900 text-blue-900 cursor-pointer" }  font-semibold px-4 py-2 rounded-full shadow-sm shadow-black flex gap-2 items-center`}>
                         {" "}
                         <IoIosSave /> Save{" "}
-                    </div>
+                    </button>
                     <Link to={"/all-notes"}>
-                        <div className="bg-blue-900 text-white font-semibold px-4 py-2 rounded-full shadow-md shadow-black cursor-pointer"> View Notes </div>
+                        <button className="bg-blue-900 text-white font-semibold px-4 py-2 rounded-full shadow-md shadow-black cursor-pointer"> View Notes </button>
                     </Link>
                 </div>
             </div>
