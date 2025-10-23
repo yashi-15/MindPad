@@ -1,4 +1,4 @@
-# 📝 Notes App
+# 📝 MindPad
 
 A simple and interactive Notes App built using **React.js** that allows users to create, view, edit, and delete notes. All notes are saved in **localStorage**, ensuring your data persists even after page reloads.
 
